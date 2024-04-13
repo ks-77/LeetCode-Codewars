@@ -60,10 +60,12 @@ def summation(num):
 
 
 # This code does not execute properly. Try to figure out why.
+# def multiply(a, b):
+#     a * b
 
 
 def multiply(a, b):
-    a * b
+    return a * b
 
 
 # You probably know the "like" system from Facebook and other pages.
