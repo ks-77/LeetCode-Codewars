@@ -57,3 +57,74 @@ def sum_two_smallest_numbers(numbers):
 
 def summation(num):
     return sum(range(1, num + 1))
+
+
+# This code does not execute properly. Try to figure out why.
+
+
+def multiply(a, b):
+    a * b
+
+
+# You probably know the "like" system from Facebook and other pages.
+# People can "like" blog posts, pictures or other items.
+# We want to create the text that should be displayed next to such an item.
+
+# Implement the function which takes an array containing the names of people that like an item.
+# It must return the display text as shown in the examples:
+
+# []                                -->  "no one likes this"
+# ["Peter"]                         -->  "Peter likes this"
+# ["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+# ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+# ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+
+
+def likes(names):
+    if len(names) == 0:
+        return "no one likes this"
+    elif len(names) == 1:
+        return f"{names[0]} likes this"
+    elif len(names) == 2:
+        return f"{names[0]} and {names[1]} like this"
+    elif len(names) == 3:
+        return f"{names[0]}, {names[1]} and {names[2]} like this"
+    else:
+        return f"{names[0]}, {names[1]} and {len(names) - 2} others like this"
+
+
+# Digital root is the recursive sum of all the digits in a number.
+#
+# Given n, take the sum of the digits of n. If that value has more than one digit,
+# continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.
+#
+# Examples
+#     16  -->  1 + 6 = 7
+#    942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
+# 132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
+# 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
+
+
+def digital_root(n):
+    while n >= 10:
+        n = sum(int(digit) for digit in str(n))
+    return n
+
+
+# Check to see if a string has the same amount of 'x's and 'o's.
+# The method must return a boolean and be case insensitive. The string can contain any char.
+#
+# Examples input/output:
+#
+# XO("ooxx") => true
+# XO("xooxx") => false
+# XO("ooxXm") => true
+# XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+# XO("zzoo") => false
+
+
+def xo(string):
+    count_x = string.lower().count('x')
+    count_o = string.lower().count('o')
+
+    return count_x == count_o
