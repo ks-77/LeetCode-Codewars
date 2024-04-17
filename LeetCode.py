@@ -32,3 +32,56 @@ def searchInsert(nums: list[int], target: int) -> int:
         nums.append(target)
         nums.sort()
         return nums.index(target)
+
+
+# 1929. Concatenation of Array
+# Given an integer array nums of length n, you want to create an array ans of length 2n where
+# ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+# Specifically, ans is the concatenation of two nums arrays.
+# Return the array ans.
+# Example 1:
+# Input: nums = [1,2,1]
+# Output: [1,2,1,1,2,1]
+# Explanation: The array ans is formed as follows:
+# - ans = [nums[0],nums[1],nums[2],nums[0],nums[1],nums[2]]
+# - ans = [1,2,1,1,2,1]
+
+def getConcatenation(self, nums: list[int]) -> list[int]:
+    return nums + nums
+
+
+# 27. Remove Element
+# Given an integer array nums and an integer val, remove all occurrences of val in nums in-place.
+# The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+# Consider the number of elements in nums which are not equal to val be k, to get accepted,
+# you need to do the following things:
+# Change the array nums such that the first k elements of nums contain the elements which are not equal to val.
+# The remaining elements of nums are not important as well as the size of nums.
+# Return k.
+# Example 1:
+# Input: nums = [3,2,2,3], val = 3
+# Output: 2, nums = [2,2,_,_]
+# Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+# It does not matter what you leave beyond the returned k (hence they are underscores).
+
+def removeElement(self, nums: list[int], val: int) -> int:
+    while val in nums:
+        nums.remove(val)
+    return len(nums)
+
+
+# 58. Length of Last Word
+# Given a string s consisting of words and spaces, return the length of the last word in the string.
+# A word is a maximal
+# substring
+#  consisting of non-space characters only.
+# Example 1:
+# Input: s = "Hello World"
+# Output: 5
+# Explanation: The last word is "World" with length 5.
+
+def lengthOfLastWord(self, s: str) -> int:
+    words = s.split()
+    if not words:
+        return 0
+    return len(words[-1])
