@@ -130,3 +130,23 @@ def xo(string):
     count_o = string.lower().count('o')
 
     return count_x == count_o
+
+
+# Write a function called sumIntervals/sum_intervals that accepts an array of intervals,
+# and returns the sum of all the interval lengths. Overlapping intervals should only be counted once.
+
+
+def sum_of_intervals(intervals):
+    intervals.sort()
+    sum = 0
+    current_start, current_end = intervals[0]
+
+    for start, end in intervals[1:]:
+        if start <= current_end:
+            current_end = max(current_end, end)
+        else:
+            sum += current_end - current_start
+            current_start, current_end = start, end
+
+    sum += current_end - current_start
+    return sum
